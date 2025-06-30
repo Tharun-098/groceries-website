@@ -9,7 +9,7 @@ export const subscribeEmail = async (req, res) => {
   const trimmedEmail = email.trim().toLowerCase();
 
   try {
-    const existing = await Letter.findOne({ email });
+    const existing = await Letter.findOne({ trimmedEmail });
     if (existing) {
       return res.json({ success: false, message: "Email already subscribed." });
     }
