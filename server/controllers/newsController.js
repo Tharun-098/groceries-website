@@ -15,11 +15,6 @@ export const subscribeEmail = async (req, res) => {
     }
 
     await Letter.create({ email:trimmedEmail });
-    await sendEmail(
-       trimmedEmail,
-       "Welcome to Our Newsletter!",
-       "Thanks for subscribing to our newsletter. Stay tuned for updates, deals, and offers!"
-     );
     res.json({ success: true, message: "Subscribed successfully." });
   } catch (err) {
     res.json({ success: false, message: "Server error." });
