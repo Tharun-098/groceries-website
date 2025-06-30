@@ -8,7 +8,7 @@ const Login = () => {
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    //const [type,setType]=useState('password')
+    const [type,setType]=useState(true)
     const handleLogin=async(event)=>{
         try {
             event.preventDefault();
@@ -43,7 +43,10 @@ const Login = () => {
             </div>
             <div className="w-full ">
                 <p>Password</p>
-                <input onChange={(e) => setPassword(e.target.value)} value={password} placeholder="type here" className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary" type="password" required />
+                <div className="relative">
+                <input onChange={(e) => setPassword(e.target.value)} value={password} placeholder="type here" className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary" type={type?"password":"text"} required />
+                <img src={type?assets.eye-open:assets.eye-close} className="absolute w-5 h-5 top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"  onClick={() => setType(!type)} />
+                </div>
             </div>
             {state === "register" ? (
                 <p>
