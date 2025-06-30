@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
+import { assets } from "../assets/assets";
 const Login = () => {
     const {setShowUserLogin,setUser,axios,navigate}=useContext(AppContext);
     const [state, setState] = React.useState("login");
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    //const [type,setType]=useState('password')
     const handleLogin=async(event)=>{
         try {
             event.preventDefault();
