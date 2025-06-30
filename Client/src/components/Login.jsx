@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import toast from "react-hot-toast";
-import { assets } from "../assets/assets";
+import { assets } from "../assets/assets.js";
 const Login = () => {
     const {setShowUserLogin,setUser,axios,navigate}=useContext(AppContext);
     const [state, setState] = React.useState("login");
