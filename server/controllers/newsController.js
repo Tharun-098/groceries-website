@@ -7,14 +7,14 @@ export const subscribeEmail = async (req, res) => {
     return res.json({ success: false, message: "Invalid email address." });
   }
   const trimmedEmail = email.trim().toLowerCase();
-
+  
   try {
     const existing = await Letter.findOne({ email:trimmedEmail });
     if (existing) {
       return res.json({ success: false, message: "Email already subscribed." });
     }
 
-    Letter.create({ email:trimmedEmail });
+    await Letter.create({ email:trimmedEmail });
     // await sendEmail(
     //   trimmedEmail,
     //   "Welcome to Our Newsletter!",
