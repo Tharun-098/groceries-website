@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../context/AppContext'
 import toast from 'react-hot-toast'
-
+import { assets } from '../../assets/assets.js'
 const SellerLogin = () => {
     const { seller, setSeller, navigate,axios } = useContext(AppContext)
     const [email, setEmail] = useState("")
+    const [type,setType]=useState(true)
     const [password, setPassword] = useState("")
     const handleSeller = async(event) => {
         try {
@@ -49,14 +50,17 @@ const SellerLogin = () => {
 
                     <div className="w-full ">
                         <p>Password</p>
+                        <div className='relative'>
                         <input
-                            type="password"
+                            type={type?"password":"text"}
                             placeholder="enter your password"
                             className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary"
                             required
                             value={password}
                             onChange={(e)=>setPassword(e.target.value)}
-                        />
+                            />
+                            <img src={type?assets.eye_open:assets.eye_close} className="absolute w-6.5 h-5 top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"  onClick={() => setType(!type)} />
+                        </div>
                     </div>
                     <button className='bg-primary text-white w-full py-2 rounded-md cursor-pointer'>Login</button>
                 </div>

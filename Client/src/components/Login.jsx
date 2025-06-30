@@ -45,7 +45,7 @@ const Login = () => {
                 <p>Password</p>
                 <div className="relative">
                 <input onChange={(e) => setPassword(e.target.value)} value={password} placeholder="type here" className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary" type={type?"password":"text"} required />
-                <img src={type?assets.eye_open:assets.eye_close} className="absolute w-6 h-5 top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"  onClick={() => setType(!type)} />
+                <img src={type?assets.eye_open:assets.eye_close} className="absolute w-6.5 h-5 top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"  onClick={() => setType(!type)} />
                 </div>
             </div>
             {state === "register" ? (
