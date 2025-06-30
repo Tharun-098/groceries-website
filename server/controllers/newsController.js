@@ -14,7 +14,7 @@ export const subscribeEmail = async (req, res) => {
       return res.json({ success: false, message: "Email already subscribed." });
     }
 
-    //hbnhawait Letter.create({ trimmedEmail });
+    Letter.create({ trimmedEmail });
     // await sendEmail(
     //   trimmedEmail,
     //   "Welcome to Our Newsletter!",
