@@ -15,7 +15,7 @@ import orderRoutes from './routes/orderRoutes.js';
 import { stripeWebhooks } from './controllers/orderController.js';
 
 const app = express();
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['http://localhost:5173','https://groceries-teal.vercel.app'];
 const port = process.env.PORT || 4000;
 
 
