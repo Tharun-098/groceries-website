@@ -13,6 +13,7 @@ import cartRoutes from './routes/cartRouter.js';
 import addressRoutes from './routes/addressRouter.js';
 import orderRoutes from './routes/orderRoutes.js';
 import { stripeWebhooks } from './controllers/orderController.js';
+import newsLetterRoutes from './routes/letterRouter.js';
 
 const app = express();
 const allowedOrigins = ['http://localhost:5173','https://groceries-teal.vercel.app'];
@@ -35,6 +36,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/user', cartRoutes);
 app.use('/api/userAddress', addressRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/newsletter',newsLetterRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
