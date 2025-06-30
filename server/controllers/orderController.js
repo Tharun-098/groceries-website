@@ -108,31 +108,29 @@ export const stripeWebhooks = async (request, response) => {
     }
 
     switch (event.type) {
-        case "checkout.session.completed": {
-            //const paymentIntent = event.data.object;
-            //const paymentIntentId = paymentIntent.id;
+        case "payment_intent.succeeded": {
+            const paymentIntent = event.data.object;
+            const paymentIntentId = paymentIntent.id;
             // Getting Session Metadata
-            // const session = await stripeInstance.checkout.sessions.list({
-            //     payment_intent: paymentIntentId,
-            //});
-            const session=event.data.object
-            const { orderId, userId } = session.metadata;
+             const session = await stripeInstance.checkout.sessions.list({
+                 payment_intent: paymentIntentId,
+            });
+            const { orderId, userId } = session.data[0].metadata;
             console.log(orderId, userId)
             await Order.findByIdAndUpdate(orderId, { isPaid: true })
             const update = await User.findByIdAndUpdate(userId, { cartItems: {} },{new:true});
             console.log(`clearing cart for ${userId}`, update.cartItems)
             break;
         }
-        case "checkout.session.expired":
+        case "payment_intent.canceled":
             {
-                //const paymentIntent = event.data.object;
-                //const paymentIntentId = paymentIntent.id;
+                const paymentIntent = event.data.object;
+                const paymentIntentId = paymentIntent.id;
                 // Getting Session Metadata
-                //const session = await stripeInstance.checkout.sessions.list({
-                //    payment_intent: paymentIntentId,
-                //});
-                const session=event.data.object
-                const { orderId } = session.metadata;
+                const session = await stripeInstance.checkout.sessions.list({
+                    payment_intent: paymentIntentId,
+                });
+                const { orderId } = session.data[0].metadata;
                 await Order.findByIdAndDelete(orderId);
                 break;
             }
