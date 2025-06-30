@@ -1,5 +1,4 @@
 import Letter from "../models/letter.js";
-import { sendEmail } from "../utils/nodemailer.js";
 export const subscribeEmail = async (req, res) => {
   const { email } = req.body;
 
