@@ -6,6 +6,7 @@ export const subscribeEmail = async (req, res) => {
   if (!email || !email.includes("@")) {
     return res.json({ success: false, message: "Invalid email address." });
   }
+  const trimmedEmail = email.trim().toLowerCase();
 
   try {
     const existing = await Letter.findOne({ email });
@@ -13,9 +14,9 @@ export const subscribeEmail = async (req, res) => {
       return res.json({ success: false, message: "Email already subscribed." });
     }
 
-    await Letter.create({ email });
+    await Letter.create({ trimmedEmail });
     await sendEmail(
-      email,
+      trimmedEmail,
       "Welcome to Our Newsletter!",
       "Thanks for subscribing to our newsletter. Stay tuned for updates, deals, and offers!"
     );
