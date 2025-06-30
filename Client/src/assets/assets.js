@@ -11,6 +11,8 @@ import refresh_icon from "./refresh_icon.svg";
 import product_list_icon from "./product_list_icon.svg";
 import order_icon from "./order_icon.svg";
 import upload_area from "./upload_area.png";
+import eye_open from "./eye-open.png";
+import eye_close from "./eye-close.png";
 import profile_icon from "./profile_icon.png";
 import menu_icon from "./menu_icon.svg";
 import delivery_truck_icon from "./delivery_truck_icon.svg";
@@ -80,6 +82,8 @@ export const assets = {
   cart_icon,
   nav_cart_icon,
   add_icon,
+  eye_close,
+  eye_open,
   refresh_icon,
   product_list_icon,
   order_icon,
