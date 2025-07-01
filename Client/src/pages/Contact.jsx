@@ -19,8 +19,10 @@ const Contact = () => {
                 <form className='mt-6 space-y-3 text-sm' onSubmit={handleSubmit}>     
                     <input type="text" placeholder='Enter the Name' value={name} onChange={(e)=>setName(e.target.value)} name='name' className='w-full px-2 py-3.5 border rounded border-gray-500/30 outline-none text-gray-500 focus-border-primary transition'/>                                  
                     <input type="email" placeholder='Enter the Email' value={email} onChange={(e)=>setEmail(e.target.value)} name='email' className='w-full px-2 py-3.5 border rounded border-gray-500/30 outline-none text-gray-500 focus-border-primary transition'/>
-                    <textarea name='message' id="message"  rows="10" value={message} onChange={(e)=>setMessage(e.target.value)} className='w-full px-2 py-3.5 border rounded border-gray-500/30 outline-none text-gray-500 focus-border-primary transition'></textarea>                                  
-                    <button className='w-230 bg-primary mt-6 text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase'>Sent</button>
+                    <textarea name='message' id="message"  rows="10" value={message} onChange={(e)=>setMessage(e.target.value)} className='w-full px-2 py-3.5 border rounded border-gray-500/30 outline-none text-gray-500 focus-border-primary transition' placeholder='Enter the message'></textarea>
+                    <div className='text-center'>
+                    <button className='w-30 bg-primary mt-6 text-white py-3 hover:bg-primary-dull transition cursor-pointer uppercase'>Sent</button>
+                    </div>                                  
                 </form>
             </div>
         </div>
