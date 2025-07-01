@@ -10,7 +10,7 @@ const Contact = () => {
     const form=useRef()
     const handleSubmit=async(e)=>{
             e.preventDefault()
-            emailjs.sendForm("service_jjie8ww", "template_avgebxl", form.current, {publicKey: "vUmLYHBo3i3DLscL5"})
+            emailjs.sendForm("service_jjie8ww", "template_avgebxl", form.current, {publicKey: "0TNuLGTv7dWmelpLp"})
       .then(
         () => {
           toast.success("Successfully sent")
