@@ -20,7 +20,8 @@ const Contact = () => {
           navigate('/')
         },
         (error) => {
-          toast.error('FAILED...', error.text);
+          toast.error(error.text);
+          //toast.error('FAILED...', error.text);
         },
       );
     }
