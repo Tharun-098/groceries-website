@@ -90,7 +90,7 @@ const NavBar = () => {
                     {user &&
                         <NavLink to="/orders" className="block" onClick={() => setOpen(false)}>All Orders</NavLink>
                     }
-                    <NavLink to="/products" className="block" onClick={() => setOpen(false)}>Contacts</NavLink>
+                    <NavLink to="/contact" className="block" onClick={() => setOpen(false)}>Contacts</NavLink>
                     {!user ? (
                         <button onClick={() => {
                             setOpen(false)
